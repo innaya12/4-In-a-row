@@ -1,4 +1,5 @@
 const board = require('./board');
+const Player = require('./player');
 
 class Game {
     constructor() {
@@ -6,10 +7,18 @@ class Game {
         this.player1 = null;
         this.player2 = null;
         this.currentPlayer = null;
+        this.rows = null;
+        this.cols = null;
     }
 
     initBoard(rows, cols) {
         this.board = new board(rows, cols);
+        this.rows = rows;
+        this.cols = cols;
+    }
+
+    getBoard() {
+        return this.board
     }
 
     setCurrent(player) {
@@ -17,9 +26,13 @@ class Game {
     }
 
     setPlayers(p1, p2) {
-        this.player1 = p1;
-        this.player2 = p2;
-        this.setCurrent(this.player1)
+        this.player1 = new Player.Player(p1.name, p1.color);
+        if (p2.name === 'computer') {
+            this.player2 = new Player.Computer()
+        } else {
+            this.player2 = new Player.Player(p2.name, p2.color);
+        }
+        this.setCurrent(this.player2); //Change to Player1
     }
 
     getPlayer1() {
@@ -36,8 +49,16 @@ class Game {
 
     move(columnIndex, color) { //REMOVE COLOR
         const answer = this.board.move(columnIndex, color);//this.currentPlayer.color
-        if (answer == true) {
+        if (answer === true) {
             return this.checkWin()
+        } else {
+            return this.ifColumnFull()
+        }
+    }
+
+    ifColumnFull() {
+        if (this.currentPlayer instanceof Player.Computer) {
+            this.currentPlayer.makeMove(this.cols);
         } else {
             return false
         }
@@ -45,38 +66,45 @@ class Game {
 
     checkWin() {
         const answer = this.board.checkWin('pink'); //this.currentPlayer.color
-        if (answer == true) {
-            this.addWinner()
+        if (answer === true) {
+            return this.addWinner()
         } else {
             return this.checkFull()
         }
     }
 
     addWinner() {
-        // this.currentPlayer.win = 1;
+        this.currentPlayer.wins += 1;
+        console.log('game won');
         return this.endGame(1)
     }
 
     checkFull() {
         const answer = this.board.checkFull();
-        // if (answer == true) {
-        //     return this.endGame(0)
-        // } else {
-        //     return this.switchPlayer()
-        // }
+        if (answer === true) {
+           return this.endGame(0)
+        } else {
+            return this.switchPlayer()
+        }
     }
 
     switchPlayer() {
-        this.currentPlayer.name == this.player1.name 
+        this.currentPlayer.name === this.player1.name 
         ? 
         this.currentPlayer = this.player2 
         : 
         this.currentPlayer = this.player1;
-        return true
+        return 3 // Next players turn
     }
 
     endGame(num) {
-        return num
+        if(num === 1) {
+            console.log(this.currentPlayer.name, " won!");
+            return 1 //if winner
+        } else {
+            return 2 //board full
+        }
+        return
     }
 
 }
