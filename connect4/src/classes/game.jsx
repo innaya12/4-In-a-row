@@ -15,6 +15,7 @@ class Game {
         this.board = new board(rows, cols);
         this.rows = rows;
         this.cols = cols;
+        console.log('setting board');
     }
 
     getBoard() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style/style.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import GameEntry from './component/gameEntry';
 import OnePlayer from './component/player';
-import Play from './component/play'
+import Play from './component/play';
 const game = require('./classes/game');
 const Board = require('./classes/board');
 
@@ -19,7 +19,8 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div className="main">
+        <h1 className='header'>Connect Four</h1>
         <Switch>
           <Route path={"/Player"} component={OnePlayer}/>
           <Route path={"/play"} component={Play}/>
