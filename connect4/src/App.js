@@ -10,7 +10,7 @@ import GameEntry from './component/gameEntry';
 import OnePlayer from './component/onePlayer';
 import TwoPlayers from './component/twoPlayers'
 import Play from './component/play'
-const game = require('./classes/game');
+// const game = require('./classes/game');
 // const Board = require('./classes/board');
 
 function App() {
