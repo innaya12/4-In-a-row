@@ -37,7 +37,7 @@ class Game {
     move(columnIndex, color) { //REMOVE COLOR
         const answer = this.board.move(columnIndex, color);//this.currentPlayer.color
         if (answer == true) {
-            return this.checkWin()
+            this.checkWin()
         } else {
             return false
         }
@@ -48,21 +48,23 @@ class Game {
         if (answer == true) {
             this.addWinner()
         } else {
-            return this.checkFull()
+            this.checkFull()
         }
     }
 
     addWinner() {
         // this.currentPlayer.win = 1;
-        return this.endGame(1)
+        console.log('game won');
+        return
+        // this.endGame(1)
     }
 
     checkFull() {
         const answer = this.board.checkFull();
         // if (answer == true) {
-        //     return this.endGame(0)
+        //     this.endGame(0)
         // } else {
-        //     return this.switchPlayer()
+        //     this.switchPlayer()
         // }
     }
 
@@ -76,7 +78,12 @@ class Game {
     }
 
     endGame(num) {
-        return num
+        if(num === 1) {
+            // someone won
+        } else {
+            // no winner
+        }
+        return
     }
 
 }

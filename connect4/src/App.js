@@ -14,7 +14,11 @@ import Play from './component/play'
 
 // const Board = require('./classes/board');
 
+
+
+
 function App() {
+  game.setPlayers()
   game.initBoard(4, 4);
   game.move(0, 'pink');
   game.move(0, 'pink');
@@ -31,7 +35,7 @@ function App() {
   game.move(3, 'pink');
   game.move(3, 'blue');
   game.move(3, 'pink');
-  game.move(3, 'pink');
+  game.move(3, 'blue');
   return (
     <Router>
       <div className="App">
