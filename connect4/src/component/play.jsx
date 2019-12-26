@@ -1,4 +1,5 @@
 import React from 'react';
+import BuildBoard from './buildBoard'
 const game = require('../classes/game');
 
 class Play extends React.Component{
@@ -8,10 +9,12 @@ class Play extends React.Component{
         };
         this.getSettings();
     }
-    
+
+
+
     getSettings(){
-        // console.log("1", game.getPlayer1());
-        // console.log("2", game.getPlayer2());
+        console.log("1", game.getPlayer1());
+        console.log("2", game.getPlayer2());
         console.log("3", game.getCurrentPlayer());
         // console.log("4", game.getBoard());
         let board = 4;
@@ -22,6 +25,8 @@ class Play extends React.Component{
         return(
             <div>
                 <h6>component game</h6>
+                <BuildBoard />
+               
             </div>
         )
 

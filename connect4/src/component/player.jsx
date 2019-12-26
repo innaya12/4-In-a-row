@@ -26,10 +26,11 @@ class Player extends React.Component{
                 name: "computer"
             }, 
             data: true,
+        }, () => {
+            game.setPlayers(this.state.player1, this.state.player2);
+            console.log("please work", game.getCurrentPlayer())
         });
-        game.setPlayers(this.state.player1, this.state.player2);
-        console.log("please work", game.getCurrentPlayer())
-    }
+    };
     onChange = (e) =>{
         e.preventDefault();
         if (e.target.name === "color"){
@@ -43,8 +44,7 @@ class Player extends React.Component{
         if (this.numOfPlayers == 1){  
             this.buildPlayer(this.name, this.color);
         }
-        
-    }
+    };
 
     render(){
         console.log("player1" , this.state.player1);
