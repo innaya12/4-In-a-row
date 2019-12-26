@@ -1,9 +1,8 @@
 import React from 'react';
 import './style.css'; 
 import { Link } from 'react-router-dom';
-
-// const game = require('../classes/game');
-// const board = require('../classes/board');
+import Player from './player';
+const game = require('../classes/game');
 
 class GameEntry extends React.Component{
     constructor(props){
@@ -12,60 +11,77 @@ class GameEntry extends React.Component{
             numOfPlayers : 0,
             row: 0,
             col: 0,
-            numOfPlayers: 0,
         };
+    }
+
+    onChangeNumOfPlayers = (e) =>{
+        this.setState({
+            numOfPlayers: e.target.value
+        })
     }
 
     onChange = (e)=> {
         e.preventDefault();
-        if (e.target.name === "width"){
-            this.setState({
-                row: e.target.value
-            })
-        }else if (e.target.name === "height"){
-            this.setState({
-                col: e.target.value
-            })        
-        } else if (e.target.name === "numOfPlayers"){
-            this.setState({
-                numOfPlayers: e.target.value
-            })
+        if(this.state.col != 0 && this.state.row != 0){
+            this.bulidingTheBoard(this.state.row, this.state.col);
+        } else {
+            if (e.target.name === "width"){
+                this.setState({
+                    row: e.target.value
+                })
+            }else if (e.target.name === "height"){
+                this.setState({
+                    col: e.target.value
+                })        
+            }
         }
     }
-
+    bulidingTheBoard(row,col){
+        game.initBoard(row,col);
+    }
 
     render(){
-        console.log(this.state.row, this.state.col, this.state.numOfPlayers)
-
+        console.log(this.state.numOfPlayers)
+        const {numOfPlayers, row, col} = this.state;
         return(
             <div>
-                <h6>GameEntry component</h6>
-                <p>please choose game settings</p>
-                <form action="/action_page.php">
-                    <select onChange={this.onChange} name="width">
-                        <option value="4" defaultValue>4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                    </select>
-                    <select onChange={this.onChange} name="height">
-                        <option value="4" defaultValue>4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                    </select>
-                </form>
+                <h5>Connect 4</h5>
+                {(row === 0 ||  col ===0) &&
+                <div>
+                    <form action="/action_page.php">
+                        <p>please choose game settings</p>
+                        <select onChange={this.onChange} name="width">
+                            <option value="0" defaultValue>0</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                        <select onChange={this.onChange} name="height">
+                            <option value="0" defaultValue>0</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </form>
+                </div>}
+                {(row !== 0 &&  col !==0) &&
                 <div>                    
-                    <input name={"numOfPlayers"} type={"radio"} value={"1"} onChange={this.onChange}/>1
-                    <input name={"numOfPlayers"} type={"radio"} value={"2"} onChange={this.onChange}/>2
+                    <input name={"numOfPlayers"} type={"radio"} value={"1"} onChange={this.onChangeNumOfPlayers}/>1
+                    <input name={"numOfPlayers"} type={"radio"} value={"2"} onChange={this.onChangeNumOfPlayers}/>2
+                </div>}
+                {numOfPlayers > 0 && 
+                <div>
+                    <p>please enter your name and choose color</p>
+                    <Player numOfPlayers = {this.state.numOfPlayers}/>
                 </div>
-                
-                {this.state.numOfPlayers == 1 && 
-                    <Link to="/oneplayer"><a href={"#"}> just here</a></Link>
                 }
-                {this.state.numOfPlayers == 2 && 
-                    <Link to="/twoplayers"><a href={"#"}> just here</a></Link>
-                }
+                {numOfPlayers == 2 && 
+                <div>
+                    <Player />
+                </div>
+            }
             </div>
 
         )
