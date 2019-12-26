@@ -17,6 +17,13 @@
   background-color: #d3d3d380;
   text-align: center;
   margin: 30px auto; }
+  .gameEntry .inner input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0; }
+  .gameEntry .inner img {
+    width: 40px; }
 
 .title {
   font-size: 20px;

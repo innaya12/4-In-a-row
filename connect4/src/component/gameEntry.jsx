@@ -70,9 +70,15 @@ class GameEntry extends React.Component{
                     </form>
                 </div>}
                 {(row !== 0 &&  col !==0) &&
-                <div className='inner'>                    
-                    <input name={"numOfPlayers"} type={"radio"} value={"1"} onChange={this.onChangeNumOfPlayers}/>1
-                    <input name={"numOfPlayers"} type={"radio"} value={"2"} onChange={this.onChangeNumOfPlayers}/>2
+                <div className='inner'>
+                    <label>                   
+                        <input name={"numOfPlayers"} type={"radio"} value={"1"} onChange={this.onChangeNumOfPlayers}/>
+                        <img src='../one.png'/>
+                    </label>
+                    <label>
+                        <input name={"numOfPlayers"} type={"radio"} value={"2"} onChange={this.onChangeNumOfPlayers}/>
+                        <img src='../two.png'/>
+                    </label>
                 </div>}
                 {numOfPlayers > 0 && 
                 <div>
