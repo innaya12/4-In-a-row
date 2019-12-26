@@ -11,7 +11,7 @@ class Board {
         for (let i = 0; i < rows; i++) {
             matrix[i] = [];
             for (let j = 0; j < cols; j++) {
-                if (i == rows-1) {
+                if (i === rows-1) {
                     matrix[i][j] = null
                 } else {
                     matrix[i][j] = 'empty'
@@ -26,16 +26,16 @@ class Board {
         let counter = 0;
         for (let i = 0; i < this.board.length; i++) {
             counter += 1;
-            if(this.board[i][colIndex] == null) {
+            if(this.board[i][colIndex] === null) {
                 this.board[i][colIndex] = color;
-                if (i != 0) {
+                if (i !== 0) {
                     this.board[i-1][colIndex] = null;
                 }
                 this.currentMove = [i, colIndex];
                 return true
             }
         }
-        if (counter == this.board.length) {
+        if (counter === this.board.length) {
             return false
         }
     }
@@ -70,7 +70,7 @@ class Board {
         const y = current[1];
         const board = this.board;
         if (x < board.length-3){
-            if (board[x+1][y] == color && board[x+2][y] == color && board[x+3][y] == color) {
+            if (board[x][y] === color && board[x+1][y] === color && board[x+2][y] === color && board[x+3][y] === color) {
                 return true
             }
             return false
@@ -82,8 +82,8 @@ class Board {
         const y = current[1];
         const board = this.board;
         if (y >= 3 || y <= board[0].length-3){
-            if (board[x][y-1] == color && board[x][y-2] == color && board[x][y-2] == color || 
-                board[x][y+1] == color && board[x][y+2] == color && board[x][y+2] == color) {
+            if (board[x][y-1] === color && board[x][y-2] === color && board[x][y-2] === color || 
+                board[x][y+1] === color && board[x][y+2] === color && board[x][y+2] === color) {
                 return true
             }
         }
@@ -99,7 +99,7 @@ class Board {
                 return true
             }
         } else if (x >= 3) {
-            if (board[x][y] === color && board[x-1][y+1] == color && board[x-2][y+2] == color && board[x-3][y+3] == color) {
+            if (board[x][y] === color && board[x-1][y+1] === color && board[x-2][y+2] === color && board[x-3][y+3] === color) {
                 return true
             }
         }
@@ -111,11 +111,11 @@ class Board {
         const y = current[1];
         const board = this.board;
         if (x < board.length-3) {
-            if (board[x][y] === color && board[x+1][y+1] == color && board[x+2][y+2] == color && board[x+3][y+3] == color){
+            if (board[x][y] === color && board[x+1][y+1] === color && board[x+2][y+2] === color && board[x+3][y+3] === color){
                 return true
             } 
         } else if (x >= 3) {
-            if (board[x][y] === color && board[x-1][y-1] == color && board[x-2][y-2] == color && board[x-3][y-3] == color) {
+            if (board[x][y] === color && board[x-1][y-1] === color && board[x-2][y-2] === color && board[x-3][y-3] === color) {
                 return true
             }
         }
@@ -125,7 +125,9 @@ class Board {
 
     checkFull() {
         if (this.count === this.boardLength) {
-            console.log('board full')
+            return true
+        } else {
+            return false
         }
     }
 }
