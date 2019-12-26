@@ -12,14 +12,15 @@ class Player {
 
 class Computer extends Player {
     constructor() {
-        super(name, color);
-        this.name = computer;
+        super();
+        this.name = 'computer';
         this.color = 'pink';
         this.wins = 0
     }
 
     makeMove(columns) {
-
+        const randomNum = Math.floor(Math.random() * (columns - 0)) + 0;
+        return randomNum;
     }
 }
 
