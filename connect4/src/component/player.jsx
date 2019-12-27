@@ -28,7 +28,7 @@ class Player extends React.Component{
             data: true,
         }, () => {
             game.setPlayers(this.state.player1, this.state.player2);
-            console.log("please work", game.getCurrentPlayer())
+            console.log("Player CurrentPlayer", game.getCurrentPlayer())
         });
     };
     onChange = (e) =>{
