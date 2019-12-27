@@ -19,7 +19,7 @@ class Game {
     }
 
     getBoard() {
-        return this.board
+        return this.board;
     }
 
     setCurrent(player) {

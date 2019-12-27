@@ -1,7 +1,6 @@
 import React from 'react';
-import './style.css'; 
-import { Link } from 'react-router-dom';
 import Player from './player';
+import './style.css'; 
 const game = require('../classes/game');
 
 class GameEntry extends React.Component{
@@ -17,27 +16,23 @@ class GameEntry extends React.Component{
     onChangeNumOfPlayers = (e) =>{
         this.setState({
             numOfPlayers: e.target.value
-        })
-    }
+        }, () => { 
+            game.initBoard(this.state.row, this.state.col);
+            // console.log("the size", game.getBoard());
+        });
+    };
 
     onChange = (e)=> {
         e.preventDefault();
-        if(this.state.col != 0 && this.state.row != 0){
-            this.bulidingTheBoard(this.state.row, this.state.col);
-        } else {
-            if (e.target.name === "width"){
-                this.setState({
-                    row: e.target.value
-                })
-            }else if (e.target.name === "height"){
-                this.setState({
-                    col: e.target.value
-                })        
-            }
+        if (e.target.name === "width"){
+            this.setState({
+                row: e.target.value
+            })
+        }else {
+            this.setState({
+                col: e.target.value
+            })        
         }
-    }
-    bulidingTheBoard(row,col){
-        game.initBoard(row,col);
     }
 
     render(){
