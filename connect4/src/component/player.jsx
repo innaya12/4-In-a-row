@@ -48,10 +48,9 @@ class Player extends React.Component{
         console.log("player2" , this.state.player2);
         return(
             <div>
-                <div>
+                <div className='userChoices'>
                     <input type="text" name="name" id="1" onChange={this.onChange}/>
-                    <input name={"color"} type={"radio"}  value={"yellow"} onChange={this.onChange}/>yellow
-                    <input name={"color"} type={"radio"} value={"blue"} onChange={this.onChange}/>blue
+                    <input name={"color"} type={"color"} onChange={this.onChange}/>
                 </div>
                 {this.state.data == true && 
                     <Link to="/play"><p> start playing</p></Link>

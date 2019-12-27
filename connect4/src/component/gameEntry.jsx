@@ -36,39 +36,48 @@ class GameEntry extends React.Component{
     }
 
     render(){
-        console.log(this.state.numOfPlayers)
+        console.log(this.state.numOfPlayers);
         const {numOfPlayers, row, col} = this.state;
         return(
-            <div>
-                <h5>Connect 4</h5>
+            <div className='gameEntry'>
                 {(row === 0 ||  col ===0) &&
-                <div>
+                <div className='inner'>
                     <form action="/action_page.php">
-                        <p>please choose game settings</p>
-                        <select onChange={this.onChange} name="width">
-                            <option value="0" defaultValue>0</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                        </select>
-                        <select onChange={this.onChange} name="height">
-                            <option value="0" defaultValue>0</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                        </select>
+                        <p className='title'>Choose Board Size</p>
+                        <div className='sizeInput'>
+                            <select onChange={this.onChange} name="width">
+                                <option value="0" defaultValue>0</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                            </select>
+                        </div>
+                        <div className='sizeInput'>
+                            <select onChange={this.onChange} name="height">
+                                <option value="0" defaultValue>0</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                            </select>
+                        </div>
                     </form>
                 </div>}
                 {(row !== 0 &&  col !==0) &&
-                <div>                    
-                    <input name={"numOfPlayers"} type={"radio"} value={"1"} onChange={this.onChangeNumOfPlayers}/>1
-                    <input name={"numOfPlayers"} type={"radio"} value={"2"} onChange={this.onChangeNumOfPlayers}/>2
+                <div className='inner'>
+                    <label>                   
+                        <input name={"numOfPlayers"} type={"radio"} value={"1"} onChange={this.onChangeNumOfPlayers}/>
+                        <img src='../one.png'/>
+                    </label>
+                    <label>
+                        <input name={"numOfPlayers"} type={"radio"} value={"2"} onChange={this.onChangeNumOfPlayers}/>
+                        <img src='../two.png'/>
+                    </label>
                 </div>}
                 {numOfPlayers > 0 && 
-                <div>
-                    <p>please enter your name and choose color</p>
+                <div className='userImput'>
+                    <p>Enter your name and choose your color</p>
                     <Player numOfPlayers = {this.state.numOfPlayers}/>
                 </div>
                 }
