@@ -26,6 +26,7 @@ class BuildBoard extends React.Component{
             divWrapper.id = `col-${colIndex}`;
             divWrapper.className = "col";
             divWrapper.onclick = function(){
+                console.log("click", colIndex);
                 let player2 =  game.getPlayer2();
                 let player2name = player2.name;
                 let currentPlayer =  game.getCurrentPlayer();
@@ -44,11 +45,23 @@ class BuildBoard extends React.Component{
                         console.log("answer", answer);
                         setTimeout(() => {
                             console.log("cmputers turn");
-                            console.log("game.cols", game.cols)
                             let randomClick = currentPlayer.makeMove(game.cols);
                             answer = game.move(randomClick);
                             console.log("answer2", answer);
                         }, 3000);
+                    }
+                } else {
+                    if (answer == 1){
+                        console.log("answer =",answer);
+                        currentPlayer.ifWinning();
+                    } else if (answer == 2 ){
+                        console.log("answer =",answer);
+                        alert("The board is full - Game Over");
+                    } else {
+                        console.log("answer =",answer);
+                        console.log(`${currentPlayer.name} turn`);
+                        answer = game.move(colIndex);
+                        console.log("answer", answer);
                     }
                 }
             };
