@@ -33,7 +33,7 @@ class Game {
         } else {
             this.player2 = new Player.Player(p2.name, p2.color);
         }
-        this.setCurrent(this.player2); //Change to Player1
+        this.setCurrent(this.player1);
     }
 
     getPlayer1() {
@@ -48,8 +48,8 @@ class Game {
         return this.currentPlayer
     }
 
-    move(columnIndex, color) { //REMOVE COLOR
-        const answer = this.board.move(columnIndex, color);//this.currentPlayer.color
+    move(columnIndex) {
+        const answer = this.board.move(columnIndex, this.currentPlayer.color);
         if (answer === true) {
             return this.checkWin()
         } else {
@@ -66,7 +66,7 @@ class Game {
     }
 
     checkWin() {
-        const answer = this.board.checkWin('pink'); //this.currentPlayer.color
+        const answer = this.board.checkWin(this.currentPlayer.color);
         if (answer === true) {
             return this.addWinner()
         } else {
