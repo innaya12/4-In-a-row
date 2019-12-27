@@ -12,13 +12,11 @@ class GameEntry extends React.Component{
             col: 0,
         };
     }
-
     onChangeNumOfPlayers = (e) =>{
         this.setState({
             numOfPlayers: e.target.value
         }, () => { 
             game.initBoard(this.state.row, this.state.col);
-            // console.log("the size", game.getBoard());
         });
     };
 
@@ -36,7 +34,7 @@ class GameEntry extends React.Component{
     }
 
     render(){
-        console.log(this.state.numOfPlayers);
+        // console.log(this.state.numOfPlayers)
         const {numOfPlayers, row, col} = this.state;
         return(
             <div className='gameEntry'>
