@@ -1,5 +1,6 @@
 import React from 'react';
 const game = require('../classes/game');
+const board = require('../classes/board');
 
 class BuildBoard extends React.Component{
     constructor(props){
@@ -14,7 +15,7 @@ class BuildBoard extends React.Component{
         for (let rowIndex = 0; rowIndex < innerlist ; rowIndex++){
             let innerdiv = document.createElement("div");
             innerdiv.className = "row";
-            innerdiv.id = `(${colIndex}, ${rowIndex})`;
+            innerdiv.id = `(${colIndex},${rowIndex})`;
             div.appendChild(innerdiv);
         }
     }
@@ -39,16 +40,33 @@ class BuildBoard extends React.Component{
                         console.log("answer =",answer);
                         alert("The board is full - Game Over");
                     } else {
-                        console.log("answer =",answer);
-                        console.log("player1 turn");
-                        answer = game.move(colIndex);
-                        console.log("answer", answer);
-                        setTimeout(() => {
+                        // console.log("board.currnetMove", board.currentMove);
+                        // document.getElementById(`(${this.currentMove[1]},${this.currentMove[1]})`).style.backgroundColor = "red";
+                        // console.log("elem", elem)
+                        function one(){
+                            console.log("answer =",answer);
+                            console.log("player1 turn");
+                            console.log(`${currentPlayer.name} turn`);
+    
+                            document.getElementById(`(${colIndex},3)`).style.backgroundColor = "yellow";
+                            answer = game.move(colIndex);
+                            console.log("answer", answer);
+                        }
+
+                        function two(){
                             console.log("cmputers turn");
-                            let randomClick = currentPlayer.makeMove(game.cols);
-                            answer = game.move(randomClick);
+                            console.log(`${currentPlayer.name} turn`);
+                            colIndex = currentPlayer.makeMove(game.cols);
+                            console.log("computersClick", colIndex);
+                            answer = game.move(colIndex);
+                            // document.getElementById((1,3)).style.backgroundColor = "pink";
                             console.log("answer2", answer);
-                        }, 3000);
+                            console.log(`${currentPlayer.name} turn`);
+                        }
+                        one();
+                        two();
+
+
                     }
                 } else {
                     if (answer == 1){
@@ -58,6 +76,7 @@ class BuildBoard extends React.Component{
                         console.log("answer =",answer);
                         alert("The board is full - Game Over");
                     } else {
+                        // one(); // call this function when there is a click
                         console.log("answer =",answer);
                         console.log(`${currentPlayer.name} turn`);
                         answer = game.move(colIndex);

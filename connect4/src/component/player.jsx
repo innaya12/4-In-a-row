@@ -52,7 +52,7 @@ class Player extends React.Component{
                     data: true,
                 }, () => {
                     game.setPlayers(this.state.player1, this.state.player2);
-                    console.log("please work", game.getCurrentPlayer())
+                    console.log("CurrentPlayer", game.getCurrentPlayer())
                 });
 
             }
@@ -84,12 +84,12 @@ class Player extends React.Component{
             <div>
                 <div className='userChoices'>
                     <input type="text" name="name" onChange={this.onChange}/>
-                    <input name={"color"} type={"color"} defaultvalue='#ff0000' onChange={this.onChange}/>
+                    <input name={"color"} type={"color"} defaultValue='#ff0000' onChange={this.onChange}/>
                 </div>
                 {this.state.numOfPlayers == 2 &&
                     <div className='userChoices'>
                         <input type="text" name="name2" onChange={this.onChange}/>
-                        <input name={"color2"} type={"color"} defaultvalue='#ff0000' onChange={this.onChange}/>
+                        <input name={"color2"} type={"color"} defaultValue='#ff0000' onChange={this.onChange}/>
                     </div>
                 }
                 {this.state.data == true && 
