@@ -69,7 +69,7 @@ class Game {
     }
 
     checkWin() {
-        const answer = this.board.checkWin('pink'); //this.currentPlayer.color
+        const answer = this.board.checkWin(this.currentPlayer.color);
         if (answer === true) {
             // console.log("checkWin > addWinner");
             return this.addWinner()

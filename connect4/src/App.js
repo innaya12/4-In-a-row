@@ -16,23 +16,6 @@ const Board = require('./classes/board');
 
 
 function App() {
-  // game.initBoard(4, 4);
-  // game.move(0, 'pink');
-  // game.move(0, 'pink');
-  // game.move(0, 'blue');
-  // game.move(0, 'pink');
-  // game.move(1, 'blue');
-  // game.move(1, 'pink');
-  // game.move(1, 'pink');
-  // game.move(1, 'blue');
-  // game.move(2, 'blue');
-  // game.move(2, 'pink');
-  // game.move(2, 'pink');
-  // game.move(2, 'blue');
-  // game.move(3, 'pink');
-  // game.move(3, 'blue');
-  // game.move(3, 'pink');
-  // game.move(3, 'pink');
   return (
     <Router>
       <div className="main">

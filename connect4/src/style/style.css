@@ -49,3 +49,18 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center; }
+
+.play {
+  text-align: center; }
+
+.players {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+
+.showColor {
+  width: 35px;
+  height: 25px;
+  margin: 0 auto; }

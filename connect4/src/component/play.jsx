@@ -1,5 +1,6 @@
 import React from 'react';
 import BuildBoard from './buildBoard'
+import ShowPlayers from './showPlayers';
 const game = require('../classes/game');
 
 class Play extends React.Component{
@@ -17,10 +18,10 @@ class Play extends React.Component{
 
     render(){
         return(
-            <div>
-                <h6>component play</h6>
-                <h2>here</h2>
+            <div className="play">
+                <h2>Round 1</h2>
                 <BuildBoard />
+                <ShowPlayers />
             </div>
         )
     }
