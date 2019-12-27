@@ -47,13 +47,8 @@ class Game {
         return this.currentPlayer;
     }
 
-<<<<<<< HEAD
-    move(columnIndex) {
-        const answer = this.board.move(columnIndex, this.currentPlayer.color);
-=======
     move(columnIndex) { //REMOVE COLOR
         const answer = this.board.move(columnIndex, this.currentPlayer.color);//this.currentPlayer.color
->>>>>>> master
         if (answer === true) {
             // console.log("move > checkWin");
             return this.checkWin()
