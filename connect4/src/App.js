@@ -12,6 +12,9 @@ import Play from './component/play'
 const game = require('./classes/game');
 const Board = require('./classes/board');
 
+
+
+
 function App() {
   // game.initBoard(4, 4);
   // game.move(0, 'pink');

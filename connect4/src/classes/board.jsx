@@ -11,7 +11,7 @@ class Board {
         for (let i = 0; i < rows; i++) {
             matrix[i] = [];
             for (let j = 0; j < cols; j++) {
-                if (i == rows-1) {
+                if (i === rows-1) {
                     matrix[i][j] = null
                 } else {
                     matrix[i][j] = 'empty'
@@ -26,16 +26,16 @@ class Board {
         let counter = 0;
         for (let i = 0; i < this.board.length; i++) {
             counter += 1;
-            if(this.board[i][colIndex] == null) {
+            if(this.board[i][colIndex] === null) {
                 this.board[i][colIndex] = color;
-                if (i != 0) {
+                if (i !== 0) {
                     this.board[i-1][colIndex] = null;
                 }
                 this.currentMove = [i, colIndex];
                 return true
             }
         }
-        if (counter == this.board.length) {
+        if (counter === this.board.length) {
             return false
         }
     }
@@ -43,15 +43,19 @@ class Board {
     checkWin(color) {
         const cur = this.currentMove;
         if (this.checkVertical(cur, color)) {
+            console.log('vert');
             return true
         }else {
             if(this.checkHorizontal(cur, color)){
+                console.log('hori');
                 return true
             } else {
                 if (this.checkDiagonalRight(cur, color)) {
+                    console.log('right');
                     return true
                 } else {
                     if (this.checkDiagonalLeft(cur, color)) {
+                        console.log('left');
                         return true
                     } else {
                         return false
@@ -65,22 +69,21 @@ class Board {
         const x = current[0];
         const y = current[1];
         const board = this.board;
-        for (let i = x; i < board.length; i++) {
-            console.log(x, y, this.board);
-            if (board[i-1][y] == color && board[i-2][y] == color && board[i-3][y] == color) {
+        if (x < board.length-3){
+            if (board[x][y] === color && board[x+1][y] === color && board[x+2][y] === color && board[x+3][y] === color) {
                 return true
             }
+            return false
         }
-        return false
     }
 
     checkHorizontal(current, color) {
         const x = current[0];
         const y = current[1];
         const board = this.board;
-        for (let i = x; i < board.length; i++) {
-            if (board[i][y-1] == color && board[i-2][y-2] == color && board[i][y-2] == color || 
-                board[i][y+1] == color && board[i][y+2] == color && board[i][y+2] == color) {
+        if (y >= 3 || y <= board[0].length-3){
+            if (board[x][y-1] === color && board[x][y-2] === color && board[x][y-2] === color || 
+                board[x][y+1] === color && board[x][y+2] === color && board[x][y+2] === color) {
                 return true
             }
         }
@@ -91,17 +94,14 @@ class Board {
         const x = current[0];
         const y = current[1];
         const board = this.board;
-        for (let i = x; i < board.length; i++) {
-            if (i >= board.length-3) {
-                if (board[i-1][y+1] == color && board[i-2][y+2] == color && board[i-3][y+3] == color){
-                    return true
-                }
-            } else {
-                if (board[i+1][y-1] == color && board[i+2][y-2] == color && board[i+3][y-3] == color){
-                    return true
-                }
+        if (x < board.length-3) {
+            if (board[x][y] === color && board[x+1][y-1] === color && board[x+2][y-2] === color && board[x+3][y-3] === color){
+                return true
             }
-            
+        } else if (x >= 3) {
+            if (board[x][y] === color && board[x-1][y+1] === color && board[x-2][y+2] === color && board[x-3][y+3] === color) {
+                return true
+            }
         }
         return false
     }
@@ -110,24 +110,24 @@ class Board {
         const x = current[0];
         const y = current[1];
         const board = this.board;
-        for (let i = x; i < board.length; i++) {
-            if (i >= board.length-3) {
-                if (board[i-1][y-1] == color && board[i-2][y-2] == color && board[i-3][y-3] == color){
-                    return true
-                }
-            } else {
-                if (board[i+1][y+1] == color && board[i+2][y+2] == color && board[i+3][y+3] == color){
-                    return true
-                }
+        if (x < board.length-3) {
+            if (board[x][y] === color && board[x+1][y+1] === color && board[x+2][y+2] === color && board[x+3][y+3] === color){
+                return true
+            } 
+        } else if (x >= 3) {
+            if (board[x][y] === color && board[x-1][y-1] === color && board[x-2][y-2] === color && board[x-3][y-3] === color) {
+                return true
             }
-            
         }
+       
         return false
     }
 
     checkFull() {
         if (this.count === this.boardLength) {
-            console.log('board full')
+            return true
+        } else {
+            return false
         }
     }
 }

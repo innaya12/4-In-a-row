@@ -10,30 +10,30 @@ class BuildBoard extends React.Component{
     }
 
     getSetting(){
-        // console.log("4", game.getBoard());
+        console.log("4", game.getBoard());
     }
 
     render(){
         return(
             <div>
-                <div class="board">
-                    <div class="col">
-                        <div class="row"></div>
-                        <div class="row"></div>
-                        <div class="row"></div>
-                        <div class="row"></div>
+                <div className="board">
+                    <div className="col">
+                        <div className="row"></div>
+                        <div className="row"></div>
+                        <div className="row"></div>
+                        <div className="row"></div>
                     </div>
-                    <div class="col">
-                        <div class="row"></div>
-                        <div class="row"></div>
-                        <div class="row"></div>
-                        <div class="row"></div>
+                    <div className="col">
+                        <div className="row"></div>
+                        <div className="row"></div>
+                        <div className="row"></div>
+                        <div className="row"></div>
                     </div>  
-                    <div class="col">
-                        <div class="row"></div>
-                        <div class="row"></div>
-                        <div class="row"></div>
-                        <div class="row"></div>
+                    <div className="col">
+                        <div className="row"></div>
+                        <div className="row"></div>
+                        <div className="row"></div>
+                        <div className="row"></div>
                     </div>
                     </div>
 
