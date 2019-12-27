@@ -34,7 +34,6 @@ class GameEntry extends React.Component{
     }
 
     render(){
-        // console.log(this.state.numOfPlayers)
         const {numOfPlayers, row, col} = this.state;
         return(
             <div className='gameEntry'>
@@ -73,17 +72,18 @@ class GameEntry extends React.Component{
                         <img src='../two.png'/>
                     </label>
                 </div>}
-                {numOfPlayers > 0 && 
+                {numOfPlayers == 1 && 
                 <div className='userImput'>
                     <p>Enter your name and choose your color</p>
                     <Player numOfPlayers = {this.state.numOfPlayers}/>
                 </div>
                 }
                 {numOfPlayers == 2 && 
-                <div>
-                    <Player />
+                <div className='userImput'>
+                    <p>Enter your name and choose your color</p>
+                    <Player numOfPlayers = {this.state.numOfPlayers}/>
                 </div>
-            }
+                }
             </div>
 
         )
