@@ -17,13 +17,16 @@
   background-color: #d3d3d380;
   text-align: center;
   margin: 30px auto; }
-  .gameEntry .inner input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0; }
-  .gameEntry .inner img {
-    width: 40px; }
+  .gameEntry .inner {
+    padding-top: 20px; }
+    .gameEntry .inner input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0; }
+    .gameEntry .inner img {
+      width: 40px;
+      margin: 3px; }
 
 .title {
   font-size: 20px;
@@ -35,3 +38,14 @@
   .sizeInput select {
     width: 100px;
     height: 30px; }
+
+.userImput {
+  margin-top: 75px; }
+
+.userChoices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }

@@ -18,6 +18,7 @@
     text-align: center;
     margin: 30px auto;
     .inner {
+        padding-top: 20px;
         input[type="radio"] {
             position: absolute;
             opacity: 0;
@@ -26,6 +27,7 @@
         }
         img {
             width: 40px;
+            margin: 3px;
         }
     }
 }
@@ -41,3 +43,11 @@
         height: 30px;
     }
 }
+
+.userImput {
+    margin-top: 75px;
+}
+ .userChoices {
+     display: flex;
+     justify-content: center;
+ }

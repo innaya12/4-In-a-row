@@ -81,8 +81,8 @@ class GameEntry extends React.Component{
                     </label>
                 </div>}
                 {numOfPlayers > 0 && 
-                <div>
-                    <p>please enter your name and choose color</p>
+                <div className='userImput'>
+                    <p>Enter your name and choose your color</p>
                     <Player numOfPlayers = {this.state.numOfPlayers}/>
                 </div>
                 }
