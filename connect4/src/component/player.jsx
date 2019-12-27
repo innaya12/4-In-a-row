@@ -38,9 +38,6 @@ class Player extends React.Component{
         } else {
             this.name = e.target.value;
         }
-        // console.log("name", this.name);
-        // console.log("color", this.color);
-        // console.log(":this.numOfPlayers", this.numOfPlayers);
         if (this.numOfPlayers == 1){  
             this.buildPlayer(this.name, this.color);
         }
@@ -61,7 +58,6 @@ class Player extends React.Component{
                 }
             </div>
         )
-
     }
 }
 
