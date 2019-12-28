@@ -64,3 +64,15 @@
   width: 35px;
   height: 25px;
   margin: 0 auto; }
+
+.endGame {
+  text-align: center;
+  margin-top: 50px; }
+  .endGame .winner {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #d3d3d380; }
+    .endGame .winner div {
+      padding-top: 85px; }

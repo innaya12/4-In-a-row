@@ -17,12 +17,17 @@ class Computer extends Player {
         this.color = 'pink';
         this.wins = 0
     }
-
+    ifWinning(){
+        this.wins += 1;
+        return this.wins;
+    }
     makeMove(columns) {
         console.log("computer is moving")
         const randomNum = Math.floor(Math.random() * (columns - 0)) + 0;
+        console.log("Computer class randomNum", randomNum);
         return randomNum;
     }
+
 }
 
 module.exports = {

@@ -14,7 +14,6 @@ const Board = require('./classes/board');
 
 
 
-
 function App() {
   return (
     <Router>
