@@ -9,10 +9,6 @@ import {
 import GameEntry from './component/gameEntry';
 import OnePlayer from './component/player';
 import Play from './component/play';
-const game = require('./classes/game');
-const Board = require('./classes/board');
-
-
 
 function App() {
   return (
