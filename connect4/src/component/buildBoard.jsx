@@ -26,53 +26,25 @@ class BuildBoard extends React.Component{
         let player2 =  game.getPlayer2();
         let player2name = player2.name;
         let currentPlayer =  game.getCurrentPlayer();
-        let currentPlayername = currentPlayer.name;
         for (let colIndex =0; colIndex< list; colIndex++){
             let divWrapper = document.createElement("div");
             divWrapper.id = `col-${colIndex}`;
             divWrapper.className = "col";
 
             divWrapper.onclick = function(){
-                console.log("click", colIndex);                
+                function one(){
+                    answer = game.move(colIndex);
+                }
+
+                function two(){
+                    answer = game.move(computersClick);
+                }
                 if (player2name == "computer"){
                     computersClick = player2.makeMove(game.cols);
-                    if (answer == 1){
-                        // console.log("answer =",answer);
-                        currentPlayer.ifWinning();
-                    } else if (answer == 2 ){
-                        // console.log("answer =",answer);
-                        // alert("The board is full - Game Over");
-                    } else {
-                        function one(){
-                            // console.log("answer =",answer);
-                            console.log(`${currentPlayer.name} turn`);
-                            answer = game.move(colIndex);
-                            // console.log("answer", answer);
-                        }
-
-                        function two(){
-                            console.log("here")
-                            console.log(`${currentPlayer.name} turn`);
-                            answer = game.move(computersClick);
-                            // console.log("answer2", answer);
-                        }
-                        one();
-                        two();
-                    }
-                // } else {
-                //     if (answer == 1){
-                //         // console.log("answer =",answer);
-                //         currentPlayer.ifWinning();
-                //     } else if (answer == 2 ){
-                //         // console.log("answer =",answer);
-                //         alert("The board is full - Game Over");
-                //     } else {
-                //         // one(); // call this function when there is a click
-                //         // console.log("answer =",answer);
-                //         console.log(`${currentPlayer.name} turn`);
-                //         answer = game.move(colIndex);
-                        // console.log("answer", answer);
-                    // }
+                    one();
+                    two();
+                } else {
+                    one(); // call this function when there is a click
                 }
             };
             div.appendChild(divWrapper);
