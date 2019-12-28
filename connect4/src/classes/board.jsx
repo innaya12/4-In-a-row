@@ -18,6 +18,7 @@ class Board {
                 }
             }
         }
+        console.log("matrix", matrix);
         return matrix
     }
 
@@ -32,6 +33,9 @@ class Board {
                     this.board[i-1][colIndex] = null;
                 }
                 this.currentMove = [i, colIndex];
+                console.log("colIndex", colIndex);
+                console.log("board class this.currentMove", this.currentMove);
+                document.getElementById(`(${this.currentMove[1]},${this.currentMove[0]})`).style.backgroundColor = "red";
                 return true
             }
         }

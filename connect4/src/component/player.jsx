@@ -33,7 +33,7 @@ class Player extends React.Component{
                 data: true,
             }, () => {
                 game.setPlayers(this.state.player1, this.state.player2);
-                console.log("please work", game.getCurrentPlayer())
+                // console.log("current Player", game.getCurrentPlayer())
             });
         } else {
             if (!this.name2) {
@@ -77,9 +77,9 @@ class Player extends React.Component{
     };
 
     render(){
-        console.log("player1" , this.state.player1);
-        console.log("player2" , this.state.player2);
-        console.log(this.state.numOfPlayers);
+        // console.log("player1" , this.state.player1);
+        // console.log("player2" , this.state.player2);
+        // console.log(this.state.numOfPlayers);
         return(
             <div>
                 <div className='userChoices'>
