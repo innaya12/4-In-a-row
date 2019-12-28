@@ -14,7 +14,7 @@ class Computer extends Player {
     constructor() {
         super();
         this.name = 'computer';
-        this.color = 'pink';
+        this.color = '#740023';
         this.wins = 0
     }
     ifWinning(){

@@ -50,6 +50,13 @@ class Game {
     move(columnIndex) { //REMOVE COLOR
         const answer = this.board.move(columnIndex, this.currentPlayer.color);//this.currentPlayer.color
         if (answer === true) {
+            console.log("class game this.currentMove", this.board.currentMove)
+            console.log("class game this.currentPlayer.color", this.currentPlayer.color)
+
+            // this.currentPlayer = {name: 'maya', color: 'green'}; //null
+
+            document.getElementById(`(${this.board.currentMove[1]},${this.board.currentMove[0]})`).style.backgroundColor = this.currentPlayer.color;
+            
             // console.log("move > checkWin");
             return this.checkWin()
         } else {

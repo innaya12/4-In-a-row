@@ -22,66 +22,57 @@ class BuildBoard extends React.Component{
 
     createCols(list, innerlist, div){
         let answer;
+        let computersClick;
+        let player2 =  game.getPlayer2();
+        let player2name = player2.name;
+        let currentPlayer =  game.getCurrentPlayer();
+        let currentPlayername = currentPlayer.name;
         for (let colIndex =0; colIndex< list; colIndex++){
             let divWrapper = document.createElement("div");
             divWrapper.id = `col-${colIndex}`;
             divWrapper.className = "col";
+
             divWrapper.onclick = function(){
-                console.log("click", colIndex);
-                let player2 =  game.getPlayer2();
-                let player2name = player2.name;
-                let currentPlayer =  game.getCurrentPlayer();
-                let currentPlayername = currentPlayer.name;
+                console.log("click", colIndex);                
                 if (player2name == "computer"){
+                    computersClick = player2.makeMove(game.cols);
                     if (answer == 1){
-                        console.log("answer =",answer);
+                        // console.log("answer =",answer);
                         currentPlayer.ifWinning();
                     } else if (answer == 2 ){
-                        console.log("answer =",answer);
-                        alert("The board is full - Game Over");
+                        // console.log("answer =",answer);
+                        // alert("The board is full - Game Over");
                     } else {
-                        // console.log("board.currnetMove", board.currentMove);
-                        // document.getElementById(`(${this.currentMove[1]},${this.currentMove[1]})`).style.backgroundColor = "red";
-                        // console.log("elem", elem)
                         function one(){
-                            console.log("answer =",answer);
-                            console.log("player1 turn");
+                            // console.log("answer =",answer);
                             console.log(`${currentPlayer.name} turn`);
-    
-                            document.getElementById(`(${colIndex},3)`).style.backgroundColor = "yellow";
                             answer = game.move(colIndex);
-                            console.log("answer", answer);
+                            // console.log("answer", answer);
                         }
 
                         function two(){
-                            console.log("cmputers turn");
+                            console.log("here")
                             console.log(`${currentPlayer.name} turn`);
-                            colIndex = currentPlayer.makeMove(game.cols);
-                            console.log("computersClick", colIndex);
-                            answer = game.move(colIndex);
-                            // document.getElementById((1,3)).style.backgroundColor = "pink";
-                            console.log("answer2", answer);
-                            console.log(`${currentPlayer.name} turn`);
+                            answer = game.move(computersClick);
+                            // console.log("answer2", answer);
                         }
                         one();
                         two();
-
-
                     }
-                } else {
-                    if (answer == 1){
-                        console.log("answer =",answer);
-                        currentPlayer.ifWinning();
-                    } else if (answer == 2 ){
-                        console.log("answer =",answer);
-                        alert("The board is full - Game Over");
-                    } else {
-                        // one(); // call this function when there is a click
-                        console.log("answer =",answer);
-                        console.log(`${currentPlayer.name} turn`);
-                        answer = game.move(colIndex);
-                        console.log("answer", answer);
-                    }
+                // } else {
+                //     if (answer == 1){
+                //         // console.log("answer =",answer);
+                //         currentPlayer.ifWinning();
+                //     } else if (answer == 2 ){
+                //         // console.log("answer =",answer);
+                //         alert("The board is full - Game Over");
+                //     } else {
+                //         // one(); // call this function when there is a click
+                //         // console.log("answer =",answer);
+                //         console.log(`${currentPlayer.name} turn`);
+                //         answer = game.move(colIndex);
+                        // console.log("answer", answer);
+                    // }
                 }
             };
             div.appendChild(divWrapper);
