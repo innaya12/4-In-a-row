@@ -3,11 +3,11 @@ import BuildBoard from './buildBoard'
 import ShowPlayers from './showPlayers';
 
 class Play extends React.Component{
-    // constructor(props){
-    //     super(props)
+    constructor(props){
+        super(props)
       
         // this.getSettings();
-    // }
+    }
 
     componentDidMount(){
         // console.log("1", game.getPlayer1());
