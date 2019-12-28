@@ -6,7 +6,7 @@ class Game {
         this.board = null;
         this.player1 = null;
         this.player2 = null;
-        this.currentPlayer = null;
+        this.currentPlayer = {name: 'maya', color: 'green'}; //null
         this.rows = null;
         this.cols = null;
     }

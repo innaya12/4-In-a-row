@@ -45,7 +45,7 @@
 }
 
 .userImput {
-    margin-top: 75px;
+    margin-top: 55px;
 }
  .userChoices {
      display: flex;
@@ -64,4 +64,19 @@
     width: 35px;
     height: 25px;
     margin: 0 auto;
+ }
+
+ .endGame {
+     text-align: center;
+     margin-top: 50px;
+     .winner {
+         width: 500px;
+         height: 400px;
+         margin: 0 auto;
+         border-radius: 20px;
+         background-color: #d3d3d380;
+         div {
+             padding-top: 85px;
+         }
+     }
  }
