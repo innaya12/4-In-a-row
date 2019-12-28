@@ -1,5 +1,6 @@
 import React from 'react';
 const game = require('../classes/game');
+const board = require('../classes/board');
 
 class BuildBoard extends React.Component{
     constructor(props){
@@ -31,11 +32,11 @@ class BuildBoard extends React.Component{
                 let player2name = player2.name;
                 let currentPlayer =  game.getCurrentPlayer();
                 let currentPlayername = currentPlayer.name;
-                if (player2name === "computer"){
-                    if (answer === 1){
+                if (player2name == "computer"){
+                    if (answer == 1){
                         console.log("answer =",answer);
                         currentPlayer.ifWinning();
-                    } else if (answer === 2 ){
+                    } else if (answer == 2 ){
                         console.log("answer =",answer);
                         alert("The board is full - Game Over");
                     } else {
@@ -68,10 +69,10 @@ class BuildBoard extends React.Component{
 
                     }
                 } else {
-                    if (answer === 1){
+                    if (answer == 1){
                         console.log("answer =",answer);
                         currentPlayer.ifWinning();
-                    } else if (answer === 2 ){
+                    } else if (answer == 2 ){
                         console.log("answer =",answer);
                         alert("The board is full - Game Over");
                     } else {

@@ -22,7 +22,7 @@ class GameEntry extends React.Component{
 
     onChange = (e)=> {
         e.preventDefault();
-        if (e.target.name === "width"){
+        if (e.target.name == "width"){
             this.setState({
                 row: e.target.value
             })
@@ -37,7 +37,7 @@ class GameEntry extends React.Component{
         const {numOfPlayers, row, col} = this.state;
         return(
             <div className='gameEntry'>
-                {(row === 0 ||  col ===0) &&
+                {(row == 0 ||  col ==0) &&
                 <div className='inner'>
                     <form action="/action_page.php">
                         <p className='title'>Choose Board Size</p>
@@ -73,14 +73,14 @@ class GameEntry extends React.Component{
                         <img src='../two.png' alt={"#"}/>
                     </label>
                 </div>}
-                {numOfPlayers === 1 && 
+                {numOfPlayers == 1 && 
                 <div className='userImput'>
                     <p>Enter your name and choose your color</p>
                     <p style={{fontSize: '11px'}}>(exit out of color selection window to set color)</p>
                     <Player numOfPlayers = {this.state.numOfPlayers}/>
                 </div>
                 }
-                {numOfPlayers === 2 && 
+                {numOfPlayers == 2 && 
                 <div className='userImput'>
                     <p>Enter your name and choose your color</p>
                     <p style={{fontSize: '11px'}}>(exit out of color selection window to set color)</p>
