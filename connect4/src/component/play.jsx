@@ -1,14 +1,13 @@
 import React from 'react';
 import BuildBoard from './buildBoard'
 import ShowPlayers from './showPlayers';
-const game = require('../classes/game');
 
 class Play extends React.Component{
-    constructor(props){
-        super(props)
+    // constructor(props){
+    //     super(props)
       
         // this.getSettings();
-    }
+    // }
 
     componentDidMount(){
         // console.log("1", game.getPlayer1());

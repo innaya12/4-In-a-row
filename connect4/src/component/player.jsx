@@ -24,7 +24,7 @@ class Player extends React.Component{
     }
 
     buildPlayer(name, color){
-        if (this.state.numOfPlayers == 1) {
+        if (this.state.numOfPlayers === 1) {
             this.setState({
                 player1:{
                     color: color,
@@ -71,7 +71,7 @@ class Player extends React.Component{
         } else if (e.target.name === 'name2'){
             this.name2 = e.target.value;
         }
-        if (this.state.numOfPlayers == 2) {
+        if (this.state.numOfPlayers === 2) {
             this.buildPlayer(this.name2, this.color2);
         }
     };
@@ -86,13 +86,13 @@ class Player extends React.Component{
                     <input type="text" name="name" onChange={this.onChange}/>
                     <input name={"color"} type={"color"} defaultValue='#ff0000' onChange={this.onChange}/>
                 </div>
-                {this.state.numOfPlayers == 2 &&
+                {this.state.numOfPlayers === 2 &&
                     <div className='userChoices'>
                         <input type="text" name="name2" onChange={this.onChange}/>
                         <input name={"color2"} type={"color"} defaultValue='#ff0000' onChange={this.onChange}/>
                     </div>
                 }
-                {this.state.data == true && 
+                {this.state.data === true && 
                     <Link to="/play"><p> start playing</p></Link>
                 }
             </div>
