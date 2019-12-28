@@ -22,9 +22,7 @@ class Computer extends Player {
         return this.wins;
     }
     makeMove(columns) {
-        console.log("computer is moving")
         const randomNum = Math.floor(Math.random() * (columns - 0)) + 0;
-        console.log("Computer class randomNum", randomNum);
         return randomNum;
     }
 

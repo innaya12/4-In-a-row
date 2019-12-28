@@ -32,7 +32,9 @@ class Game {
             this.player2 = new Player.Computer()
         } else {
             this.player2 = new Player.Player(p2.name, p2.color);
+
         }
+
         this.setCurrent(this.player1);
     }
 
@@ -50,27 +52,17 @@ class Game {
     move(columnIndex) { //REMOVE COLOR
         const answer = this.board.move(columnIndex, this.currentPlayer.color);//this.currentPlayer.color
         if (answer === true) {
-            console.log("class game this.currentMove", this.board.currentMove)
-            console.log("class game this.currentPlayer.color", this.currentPlayer.color)
-
-            // this.currentPlayer = {name: 'maya', color: 'green'}; //null
-
             document.getElementById(`(${this.board.currentMove[1]},${this.board.currentMove[0]})`).style.backgroundColor = this.currentPlayer.color;
-            
-            // console.log("move > checkWin");
             return this.checkWin()
         } else {
-            // console.log("move > ifColumnFull");
             return this.ifColumnFull()
         }
     }
 
     ifColumnFull() {
         if (this.currentPlayer instanceof Player.Computer) {
-            // console.log("ifColumnFull > makeMove");
             this.currentPlayer.makeMove(this.cols);
         } else {
-            // console.log("ifColumnFull > false");
             return false
         }
     }
@@ -78,17 +70,14 @@ class Game {
     checkWin() {
         const answer = this.board.checkWin(this.currentPlayer.color);
         if (answer === true) {
-            // console.log("checkWin > addWinner");
             return this.addWinner()
         } else {
-            // console.log("checkWin > checkFull");
             return this.checkFull()
         }
     }
 
     addWinner() {
         this.currentPlayer.wins += 1;
-        // console.log("addWinner > endGame");
         // console.log('game won');
         return this.endGame(1)
     }
@@ -96,32 +85,30 @@ class Game {
     checkFull() {
         const answer = this.board.checkFull();
         if (answer === true) {
-            // console.log("checkFull > endGame");
            return this.endGame(0)
         } else {
-            // console.log("checkFull > switchPlayer");
             return this.switchPlayer()
         }
     }
 
     switchPlayer(){
         // console.log("switchPlayer");
-        // console.log("cg befoer this.currentPlayer",this.currentPlayer)
         this.currentPlayer.name === this.player1.name 
         ? 
         this.currentPlayer = this.player2 
         : 
         this.currentPlayer = this.player1;
-        // console.log("cg after  this.currentPlayer",this.currentPlayer)
         return 3 // Next players turn
     }
 
     endGame(num) {
         console.log("endGame");
         if(num === 1) {
-            console.log(this.currentPlayer.name, " won!");
+            alert(`${this.currentPlayer.name} won!`);
             return 1 //if winner
         } else {
+            alert("The board is full - game over");
+
             return 2 //board full
         }
         return

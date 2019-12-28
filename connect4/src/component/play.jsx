@@ -9,11 +9,6 @@ class Play extends React.Component{
         // this.getSettings();
     }
 
-    componentDidMount(){
-        // console.log("1", game.getPlayer1());
-        // console.log("2", game.getPlayer2());
-        // console.log("3", game.getCurrentPlayer())
-    }
 
     render(){
         return(
