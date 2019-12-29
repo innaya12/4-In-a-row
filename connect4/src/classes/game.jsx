@@ -11,13 +11,14 @@ class Game {
         this.rows = null;
         this.cols = null;
         this.event = new EventEmitter();
-        this.status = 0;
+        this.status = null;
     }
 
     initBoard(rows, cols) {
         this.board = new board(rows, cols);
         this.rows = rows;
         this.cols = cols;
+        this.status = 0;
     }
 
     getBoard() {
