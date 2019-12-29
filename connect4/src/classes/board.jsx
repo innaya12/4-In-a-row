@@ -78,8 +78,8 @@ class Board {
         const y = current[1];
         const board = this.board;
         if (y >= 3 || y <= board[0].length-3){
-            if (board[x][y-1] === color && board[x][y-2] === color && board[x][y-2] === color || 
-                board[x][y+1] === color && board[x][y+2] === color && board[x][y+2] === color) {
+            if (board[x][y] && board[x][y-1] === color && board[x][y-2] === color && board[x][y-2] === color || 
+                board[x][y] && board[x][y+1] === color && board[x][y+2] === color && board[x][y+2] === color) {
                 return true
             }
         }

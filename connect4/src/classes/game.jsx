@@ -1,5 +1,6 @@
 const board = require('./board');
 const Player = require('./player');
+const EventEmitter = require('events').EventEmitter;
 
 class Game {
     constructor() {
@@ -9,6 +10,8 @@ class Game {
         this.currentPlayer = null;
         this.rows = null;
         this.cols = null;
+        this.event = new EventEmitter();
+        this.status = 0;
     }
 
     initBoard(rows, cols) {
@@ -95,16 +98,18 @@ class Game {
         this.currentPlayer = this.player2 
         : 
         this.currentPlayer = this.player1;
+        this.event.emit('status');
         return 3 // Next players turn
     }
 
     endGame(num) {
         if(num === 1) {
-            alert(`${this.currentPlayer.name} won!`);
+            this.status = 1;
+            this.event.emit('status');
             return 1 //if winner
         } else {
-            alert("The board is full - game over");
-
+            this.status = 2;
+            this.event.emit('status');
             return 2 //board full
         }
     }

@@ -6,7 +6,7 @@ class EndGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            status: 2//this.props.endGameNum //1=winner 2=board full
+            status: this.props.endGameNum //1=winner 2=board full
         }
     }
     render() {
