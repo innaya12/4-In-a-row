@@ -47,7 +47,9 @@ class BuildBoard extends React.Component{
                 if (player2name == "computer"){
                     computersClick = player2.makeMove(game.cols);
                     one();
-                    two();
+                    setTimeout(function() {
+                        two()
+                    }, 1000);
                 } else {
                     one(); // call this function when there is a click
                 }
