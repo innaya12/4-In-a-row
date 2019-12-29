@@ -18,7 +18,6 @@ class Board {
                 }
             }
         }
-        console.log("matrix", matrix);
         return matrix
     }
 
@@ -44,19 +43,15 @@ class Board {
     checkWin(color) {
         const cur = this.currentMove;
         if (this.checkVertical(cur, color)) {
-            console.log('vert');
             return true
         }else {
             if(this.checkHorizontal(cur, color)){
-                console.log('hori');
                 return true
             } else {
                 if (this.checkDiagonalRight(cur, color)) {
-                    console.log('right');
                     return true
                 } else {
                     if (this.checkDiagonalLeft(cur, color)) {
-                        console.log('left');
                         return true
                     } else {
                         return false

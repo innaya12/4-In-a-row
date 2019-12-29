@@ -6,7 +6,7 @@ class Game {
         this.board = null;
         this.player1 = null;
         this.player2 = null;
-        this.currentPlayer = {name: 'maya', color: 'green'}; //null
+        this.currentPlayer = null;
         this.rows = null;
         this.cols = null;
     }
@@ -15,7 +15,6 @@ class Game {
         this.board = new board(rows, cols);
         this.rows = rows;
         this.cols = cols;
-        console.log('setting board');
     }
 
     getBoard() {
@@ -49,8 +48,8 @@ class Game {
         return this.currentPlayer;
     }
 
-    move(columnIndex) { //REMOVE COLOR
-        const answer = this.board.move(columnIndex, this.currentPlayer.color);//this.currentPlayer.color
+    move(columnIndex) { 
+        const answer = this.board.move(columnIndex, this.currentPlayer.color);
         if (answer === true) {
             document.getElementById(`(${this.board.currentMove[1]},${this.board.currentMove[0]})`).style.backgroundColor = this.currentPlayer.color;
             return this.checkWin()
@@ -78,7 +77,6 @@ class Game {
 
     addWinner() {
         this.currentPlayer.wins += 1;
-        // console.log('game won');
         return this.endGame(1)
     }
 
@@ -92,7 +90,6 @@ class Game {
     }
 
     switchPlayer(){
-        // console.log("switchPlayer");
         this.currentPlayer.name === this.player1.name 
         ? 
         this.currentPlayer = this.player2 
