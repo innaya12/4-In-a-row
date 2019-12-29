@@ -1,4 +1,6 @@
 import React from 'react';
+import ShowPlayers from './showPlayers';
+import EndGame from './endGame';
 const game = require('../classes/game');
 const board = require('../classes/board');
 
@@ -8,6 +10,9 @@ class BuildBoard extends React.Component{
         this.state = {
             list :0,
             innerList : 0,
+            status: 0,
+            currentPlayer: game.getCurrentPlayer(),
+            status: 0,
         };
     }
 
@@ -55,6 +60,21 @@ class BuildBoard extends React.Component{
     buildingTheboard(list, innerlist){
         let element = document.getElementById("board");
         this.createCols(list, innerlist, element);
+        game.event.on('status', () => {
+            this.setState({
+                currentPlayer: game.getCurrentPlayer()
+            })
+            if (game.status == 1) {
+                this.setState({
+                    status: 1
+                })
+            } else if (game.status == 2) {
+                this.setState({
+                    status:  2
+                })
+            }
+        });
+        
     }
     componentDidMount(){
         this.setState({
@@ -67,7 +87,20 @@ class BuildBoard extends React.Component{
 
     render(){
         return(
-            <div className={"board"} id={"board"}>
+            <div>
+                {this.state.status == 0 &&
+                <div>
+                    <div className={"board"} id={"board"}>
+                    </div>
+                    <ShowPlayers currentPlayer={this.state.currentPlayer}/>
+                </div>
+                }
+                {this.state.status == 1 &&
+                    <EndGame endGameNum={this.state.status}/>
+                }
+                {this.state.status == 2 &&
+                    <EndGame endGameNum={this.state.status}/>
+                }
             </div>
         )
 

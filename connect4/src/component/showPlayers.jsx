@@ -5,7 +5,7 @@ class ShowPlayers extends React.Component {
     render() {
         const player1 = game.getPlayer1();
         const player2 = game.getPlayer2();
-        const current = game.getCurrentPlayer();
+        const current = this.props.currentPlayer
         return (
             <div className='players'>
                 <div>
