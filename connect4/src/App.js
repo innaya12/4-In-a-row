@@ -10,7 +10,7 @@ import GameEntry from './component/gameEntry';
 import OnePlayer from './component/onePlayer';
 import TwoPlayers from './component/twoPlayers'
 import Play from './component/play'
-// const game = require('./classes/game');
+const game = require('./classes/game');
 
 // const Board = require('./classes/board');
 
@@ -18,7 +18,6 @@ import Play from './component/play'
 
 
 function App() {
-  game.setPlayers()
   game.initBoard(4, 4);
   game.move(0, 'pink');
   game.move(0, 'pink');
