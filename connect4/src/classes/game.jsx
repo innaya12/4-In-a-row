@@ -99,7 +99,6 @@ class Game {
     }
 
     endGame(num) {
-        console.log("endGame");
         if(num === 1) {
             alert(`${this.currentPlayer.name} won!`);
             return 1 //if winner
@@ -108,7 +107,6 @@ class Game {
 
             return 2 //board full
         }
-        return
     }
 }
 
