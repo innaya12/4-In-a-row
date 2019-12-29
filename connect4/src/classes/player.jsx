@@ -12,15 +12,20 @@ class Player {
 
 class Computer extends Player {
     constructor() {
-        super(name, color);
-        this.name = computer;
-        this.color = 'pink';
+        super();
+        this.name = 'computer';
+        this.color = '#740023';
         this.wins = 0
     }
-
-    makeMove(columns) {
-
+    ifWinning(){
+        this.wins += 1;
+        return this.wins;
     }
+    makeMove(columns) {
+        const randomNum = Math.floor(Math.random() * (columns - 0)) + 0;
+        return randomNum;
+    }
+
 }
 
 module.exports = {

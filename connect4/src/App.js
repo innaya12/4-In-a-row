@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './style/style.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,42 +7,18 @@ import {
   Link
 } from "react-router-dom";
 import GameEntry from './component/gameEntry';
-import OnePlayer from './component/onePlayer';
-import TwoPlayers from './component/twoPlayers'
-import Play from './component/play'
-const game = require('./classes/game');
-
-// const Board = require('./classes/board');
-
-
-
+import OnePlayer from './component/player';
+import Play from './component/play';
 
 function App() {
-  game.initBoard(4, 4);
-  game.move(0, 'pink');
-  game.move(0, 'pink');
-  game.move(0, 'blue');
-  game.move(0, 'pink');
-  game.move(1, 'blue');
-  game.move(1, 'pink');
-  game.move(1, 'pink');
-  game.move(1, 'blue');
-  game.move(2, 'blue');
-  game.move(2, 'pink');
-  game.move(2, 'pink');
-  game.move(2, 'blue');
-  game.move(3, 'pink');
-  game.move(3, 'blue');
-  game.move(3, 'pink');
-  game.move(3, 'blue');
   return (
     <Router>
-      <div className="App">
+      <div className="main">
+        <h1 className='header'>Connect Four</h1>
         <Switch>
-          {/* <Route path={"/oneplayer"} component={OnePlayer}/>
-          <Route path={"/twoplayers"} component={TwoPlayers}/>
+          <Route path={"/Player"} component={OnePlayer}/>
           <Route path={"/play"} component={Play}/>
-          <Route path={"/"} component={GameEntry}/> */}
+          <Route path={"/"} component={GameEntry}/>
         </Switch>
       </div>
     </Router>

@@ -1,0 +1,78 @@
+.main {
+  height: 100vh;
+  background: #eeaeca;
+  background: -webkit-radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
+  background: -o-radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
+  background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%); }
+
+.header {
+  margin: 0;
+  text-align: center;
+  padding: 20px 0; }
+
+.gameEntry {
+  width: 500px;
+  height: 400px;
+  border-radius: 10px;
+  background-color: #d3d3d380;
+  text-align: center;
+  margin: 30px auto; }
+  .gameEntry .inner {
+    padding-top: 20px; }
+    .gameEntry .inner input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0; }
+    .gameEntry .inner img {
+      width: 40px;
+      margin: 3px; }
+
+.title {
+  font-size: 20px;
+  padding: 25px 0; }
+
+.sizeInput {
+  display: inline;
+  margin: 0 5px; }
+  .sizeInput select {
+    width: 100px;
+    height: 30px; }
+
+.userImput {
+  margin-top: 55px; }
+
+.userChoices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.play {
+  text-align: center; }
+
+.players {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around; }
+
+.showColor {
+  width: 35px;
+  height: 25px;
+  margin: 0 auto; }
+
+.endGame {
+  text-align: center;
+  margin-top: 50px; }
+  .endGame .winner {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background-color: #d3d3d380; }
+    .endGame .winner div {
+      padding-top: 85px; }

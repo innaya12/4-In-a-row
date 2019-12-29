@@ -1,13 +1,18 @@
 import React from 'react';
+import BuildBoard from './buildBoard'
+import ShowPlayers from './showPlayers';
 
 class Play extends React.Component{
+
+
     render(){
         return(
-            <div>
-                <h6>component game</h6>
+            <div className="play">
+                <h2>Round 1</h2>
+                <BuildBoard />
+                <ShowPlayers />
             </div>
         )
-
     }
 }
 
